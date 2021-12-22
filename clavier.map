@@ -1,0 +1,69 @@
+MPLINK 4.35, Linker
+Linker Map File - Created Thu Mar 26 01:50:41 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000172
+                   .cinit    romdata   0x001800    program   0x000004
+   .config_2007_CLAVIER.O       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x0000b8      
+                            0x001800    0x001801      
+                            0x002007    0x002007      
+            188 out of 8453 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    DEBUT   0x000030    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F1   0x00005b    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F10   0x000097    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F11   0x00009d    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F12   0x0000a3    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F13   0x0000a9    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F14   0x0000af    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F15   0x0000b5    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F2   0x000061    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F3   0x00006d    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F33   0x000067    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F4   0x000073    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F5   0x000079    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F6   0x00007f    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F7   0x000085    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F8   0x00008b    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F9   0x000091    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      SEE   0x000055    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    DEBUT   0x000030    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      SEE   0x000055    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F1   0x00005b    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F2   0x000061    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F33   0x000067    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F3   0x00006d    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F4   0x000073    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F5   0x000079    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F6   0x00007f    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F7   0x000085    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F8   0x00008b    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                       F9   0x000091    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F10   0x000097    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F11   0x00009d    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F12   0x0000a3    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F13   0x0000a9    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F14   0x0000af    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+                      F15   0x0000b5    program     static C:\Users\HP\Desktop\pic assembleur project\clavier.asm
+
+

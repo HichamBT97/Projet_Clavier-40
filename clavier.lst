@@ -1,0 +1,584 @@
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (list)
+                      00001 list p=16f877A , r=dec  
+                      00002 
+Warning[205]: Found directive in column 1. (include)
+                      00003 include <p16f877A.inc>  
+                      00001         LIST
+                      00002 ; P16F877A.INC  Standard Header File, Version 1.00    Microchip Technology, Inc.
+                      00400         LIST
+                      00004 
+Warning[205]: Found directive in column 1. (__CONFIG)
+2007   3F39           00005 __CONFIG H'3F39'
+                      00006 
+Warning[205]: Found directive in column 1. (org)
+                      00007 org 0x00
+0000   1283 1303      00008         BANKSEL 20H;
+Warning[207]: Found label after column 1. (RESULTAT)
+  00000020            00009         RESULTAT EQU 20H 
+Warning[207]: Found label after column 1. (ANCIEN)
+  00000021            00010         ANCIEN EQU 21H
+                      00011         CBLOCK 0x70
+  00000070            00012         N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, CL, ADD, SOUS, MUL, DIV, EGG
+                      00013         ENDC
+                      00014         
+0002   30D7           00015         MOVLW 0D7H;
+0003   00F0           00016         MOVWF N0;
+0004   30EB           00017         MOVLW 0EBH;
+0005   00F1           00018         MOVWF N1;
+0006   30DB           00019         MOVLW 0DBH;
+0007   00F2           00020         MOVWF N2;
+0008   30BB           00021         MOVLW 0BBH;
+0009   00F3           00022         MOVWF N3;
+000A   30ED           00023         MOVLW 0EDH;
+000B   00F4           00024         MOVWF N4;
+000C   30DD           00025         MOVLW 0DDH;
+000D   00F5           00026         MOVWF N5;
+000E   30BD           00027         MOVLW 0BDH;
+000F   00F6           00028         MOVWF N6;
+0010   30EE           00029         MOVLW 0EEH;
+0011   00F7           00030         MOVWF N7;
+0012   30DE           00031         MOVLW 0DEH;
+0013   00F8           00032         MOVWF N8;
+0014   30BE           00033         MOVLW 0BEH;
+0015   00F9           00034         MOVWF N9;
+0016   30E7           00035         MOVLW 0E7H;
+0017   00FA           00036         MOVWF CL;
+0018   3077           00037         MOVLW 077H;
+0019   00FB           00038         MOVWF ADD;
+001A   307B           00039         MOVLW 07BH;
+001B   00FC           00040         MOVWF SOUS;
+001C   307D           00041         MOVLW 07DH;
+001D   00FD           00042         MOVWF MUL;
+001E   307E           00043         MOVLW 07EH;
+001F   00FE           00044         MOVWF DIV;
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0020   30B7           00045         MOVLW 0B7H;
+0021   00FF           00046         MOVWF EGG;
+                      00047         
+                      00048 
+0022   1683 1303      00049         BANKSEL TRISE;
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0024   1209           00050         BCF TRISE,PSPMODE;
+0025   1683 1303      00051         BANKSEL TRISD;
+0027   30F0           00052         MOVLW 0F0H;
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0028   0088           00053         MOVWF TRISD;
+0029   3000           00054         MOVLW 00H;
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+002A   0086           00055         MOVWF TRISB;
+002B   1283 1303      00056         BANKSEL PORTB;
+002D   3000           00057         MOVLW 00H;
+002E   0086           00058         MOVWF PORTB;
+002F   00A1           00059         MOVWF ANCIEN;
+                      00060         
+0030                  00061 DEBUT
+0030   1283 1303      00062         BANKSEL PORTD;
+0032   30FE           00063         MOVLW 0FEH;
+0033   0088           00064         MOVWF PORTD;
+0034   0808           00065         MOVF PORTD,W; 
+0035   00A0           00066         MOVWF RESULTAT;
+0036   2???           00067         CALL SEE;
+0037   00A1           00068         MOVWF ANCIEN;
+0038   0086           00069         MOVWF PORTB;
+0039   1283 1303      00070         BANKSEL PORTD;
+003B   300D           00071         MOVLW 0DH;
+003C   0088           00072         MOVWF PORTD;
+003D   0808           00073         MOVF PORTD,W;
+003E   00A0           00074         MOVWF RESULTAT;
+003F   2???           00075         CALL SEE;
+0040   00A1           00076         MOVWF ANCIEN;
+0041   0086           00077         MOVWF PORTB;
+0042   1283 1303      00078         BANKSEL PORTD;
+0044   300B           00079         MOVLW 0BH;
+0045   0088           00080         MOVWF PORTD;
+0046   0808           00081         MOVF PORTD,W;
+0047   00A0           00082         MOVWF RESULTAT;
+0048   2???           00083         CALL SEE;
+0049   00A1           00084         MOVWF ANCIEN;
+004A   0086           00085         MOVWF PORTB;
+004B   1283 1303      00086         BANKSEL PORTD;
+004D   3007           00087         MOVLW 07H;
+004E   0088           00088         MOVWF PORTD;
+004F   0808           00089         MOVF PORTD,W;
+0050   00A0           00090         MOVWF RESULTAT;
+0051   2???           00091         CALL SEE;
+0052   00A1           00092         MOVWF ANCIEN;
+0053   0086           00093         MOVWF PORTB;
+                      00094         
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[203]: Found opcode in column 1. (GOTO)
+0054   2???           00095 GOTO DEBUT
+                      00096 
+0055                  00097 SEE
+0055   0820           00098         MOVF RESULTAT,W;
+0056   0270           00099         SUBWF N0,W;
+0057   1D03           00100         BTFSS STATUS,Z;
+0058   2???           00101         GOTO F1;
+0059   3000           00102         MOVLW 00H;
+005A   0008           00103         RETURN;
+005B   0820           00104 F1      MOVF RESULTAT,W;
+005C   0271           00105         SUBWF N1,W;
+005D   1D03           00106         BTFSS STATUS,Z;
+005E   2???           00107         GOTO F2;
+005F   3001           00108         MOVLW 01H;
+0060   0008           00109         RETURN;
+0061   0820           00110 F2      MOVF RESULTAT,W;
+0062   0272           00111         SUBWF N2,W;
+0063   1D03           00112         BTFSS STATUS,Z;
+0064   2???           00113         GOTO F33;
+0065   3002           00114         MOVLW 02H;
+0066   0008           00115         RETURN;
+0067   0820           00116 F33     MOVF RESULTAT,W;
+0068   0273           00117         SUBWF N3,W;
+0069   1D03           00118         BTFSS STATUS,Z;
+006A   2???           00119         GOTO F3;
+006B   3003           00120         MOVLW 03H;
+006C   0008           00121         RETURN;
+006D   0820           00122 F3      MOVF RESULTAT,W;
+006E   0274           00123         SUBWF N4,W;
+006F   1D03           00124         BTFSS STATUS,Z;
+0070   2???           00125         GOTO F4;
+0071   3004           00126         MOVLW 04H;
+0072   0008           00127         RETURN;
+0073   0820           00128 F4      MOVF RESULTAT,W;
+0074   0275           00129         SUBWF N5,W;
+0075   1D03           00130         BTFSS STATUS,Z;
+0076   2???           00131         GOTO F5;
+0077   3005           00132         MOVLW 05H;
+0078   0008           00133         RETURN;
+0079   0820           00134 F5      MOVF RESULTAT,W;
+007A   0276           00135         SUBWF N6,W;
+007B   1D03           00136         BTFSS STATUS,Z;
+007C   2???           00137         GOTO F6;
+007D   3006           00138         MOVLW 06H;
+007E   0008           00139         RETURN;
+007F   0820           00140 F6      MOVF RESULTAT,W;
+0080   0277           00141         SUBWF N7,W;
+0081   1D03           00142         BTFSS STATUS,Z;
+0082   2???           00143         GOTO F7;
+0083   3007           00144         MOVLW 07H;
+0084   0008           00145         RETURN;
+0085   0820           00146 F7      MOVF RESULTAT,W;
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0086   0278           00147         SUBWF N8,W;
+0087   1D03           00148         BTFSS STATUS,Z;
+0088   2???           00149         GOTO F8;
+0089   3008           00150         MOVLW 08H;
+008A   0008           00151         RETURN;
+008B   0820           00152 F8      MOVF RESULTAT,W;
+008C   0279           00153         SUBWF N9,W;
+008D   1D03           00154         BTFSS STATUS,Z;
+008E   2???           00155         GOTO F9;
+008F   3009           00156         MOVLW 09H;
+0090   0008           00157         RETURN;
+0091   0820           00158 F9      MOVF RESULTAT,W;
+0092   027A           00159         SUBWF CL,W;
+0093   1D03           00160         BTFSS STATUS,Z;
+0094   2???           00161         GOTO F10;
+0095   300A           00162         MOVLW 0AH;
+0096   0008           00163         RETURN;
+0097   0820           00164 F10     MOVF RESULTAT,W;
+0098   027B           00165         SUBWF ADD,W;
+0099   1D03           00166         BTFSS STATUS,Z;
+009A   2???           00167         GOTO F11;
+009B   300B           00168         MOVLW 0BH;
+009C   0008           00169         RETURN;
+009D   0820           00170 F11     MOVF RESULTAT,W;
+009E   027C           00171         SUBWF SOUS,W;
+009F   1D03           00172         BTFSS STATUS,Z;
+00A0   2???           00173         GOTO F12;
+00A1   300C           00174         MOVLW 0CH;
+00A2   0008           00175         RETURN;
+00A3   0820           00176 F12     MOVF RESULTAT,W;
+00A4   027D           00177         SUBWF MUL,W;
+00A5   1D03           00178         BTFSS STATUS,Z;
+00A6   2???           00179         GOTO F13;
+00A7   300D           00180         MOVLW 0DH;
+00A8   0008           00181         RETURN;
+00A9   0820           00182 F13     MOVF RESULTAT,W;
+00AA   027E           00183         SUBWF DIV,W;
+00AB   1D03           00184         BTFSS STATUS,Z;
+00AC   2???           00185         GOTO F14;
+00AD   300E           00186         MOVLW 0EH;
+00AE   0008           00187         RETURN;
+00AF   0820           00188 F14     MOVF RESULTAT,W;
+00B0   027F           00189         SUBWF EGG,W;
+00B1   1D03           00190         BTFSS STATUS,Z;
+00B2   2???           00191         GOTO F15;
+00B3   300F           00192         MOVLW 0FH;
+00B4   0008           00193         RETURN;
+00B5                  00194 F15     
+00B5   1283 1303      00195         BANKSEL ANCIEN;
+00B7   0821           00196         MOVF ANCIEN,W;
+00B8   0008           00197         RETURN;
+                      00198 
+Warning[205]: Found directive in column 1. (END)
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+3F39                  00199 END
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000006
+ADCS1                             00000007
+ADCS2                             00000006
+ADD                               0000007B
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+ANCIEN                            00000021
+BCLIE                             00000003
+BCLIF                             00000003
+BF                                00000000
+BRGH                              00000002
+C                                 00000000
+C1INV                             00000004
+C1OUT                             00000006
+C2INV                             00000005
+C2OUT                             00000007
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCP2CON                           0000001D
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2X                             00000005
+CCP2Y                             00000004
+CCPR1H                            00000016
+CCPR1L                            00000015
+CCPR2H                            0000001C
+CCPR2L                            0000001B
+CHS0                              00000003
+CHS1                              00000004
+CHS2                              00000005
+CIS                               00000003
+CKE                               00000006
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CKP                               00000004
+CL                                0000007A
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON                             0000009C
+CMIE                              00000006
+CMIF                              00000006
+CREN                              00000004
+CSRC                              00000007
+CVR0                              00000000
+CVR1                              00000001
+CVR2                              00000002
+CVR3                              00000003
+CVRCON                            0000009D
+CVREN                             00000007
+CVROE                             00000006
+CVRR                              00000005
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+DEBUT                             00000030
+DIV                               0000007E
+D_A                               00000005
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+EGG                               0000007F
+F                                 00000001
+F1                                0000005B
+F10                               00000097
+F11                               0000009D
+F12                               000000A3
+F13                               000000A9
+F14                               000000AF
+F15                               000000B5
+F2                                00000061
+F3                                0000006D
+F33                               00000067
+F4                                00000073
+F5                                00000079
+F6                                0000007F
+F7                                00000085
+F8                                0000008B
+F9                                00000091
+FERR                              00000002
+FSR                               00000004
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+GCEN                              00000007
+GIE                               00000007
+GO                                00000002
+GO_DONE                           00000002
+I2C_DATA                          00000005
+I2C_READ                          00000002
+I2C_START                         00000003
+I2C_STOP                          00000004
+IBF                               00000007
+IBOV                              00000005
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+MUL                               0000007D
+N0                                00000070
+N1                                00000071
+N2                                00000072
+N3                                00000073
+N4                                00000074
+N5                                00000075
+N6                                00000076
+N7                                00000077
+N8                                00000078
+N9                                00000079
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BO                            00000000
+NOT_BOR                           00000000
+NOT_DONE                          00000002
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RC8                           00000006
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_TX8                           00000006
+NOT_W                             00000002
+NOT_WRITE                         00000002
+OBF                               00000006
+OERR                              00000001
+OPTION_REG                        00000081
+P                                 00000004
+PCFG0                             00000000
+PCFG1                             00000001
+PCFG2                             00000002
+PCFG3                             00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE  9
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PEN                               00000002
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PORTD                             00000008
+PORTE                             00000009
+PR2                               00000092
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSPIE                             00000007
+PSPIF                             00000007
+PSPMODE                           00000004
+R                                 00000002
+RBIE                              00000003
+RBIF                              00000000
+RC8_9                             00000006
+RC9                               00000006
+RCD8                              00000000
+RCEN                              00000003
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+READ_WRITE                        00000002
+RESULTAT                          00000020
+RP0                               00000005
+RP1                               00000006
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+R_W                               00000002
+S                                 00000003
+SEE                               00000055
+SEN                               00000000
+SMP                               00000007
+SOUS                              0000007C
+SPBRG                             00000099
+SPEN                              00000007
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE 10
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1INSYNC                          00000002
+T1OSCEN                           00000003
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1CS                            00000001
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISB                             00000086
+TRISC                             00000087
+TRISD                             00000088
+TRISE                             00000089
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRMT                              00000001
+TX8_9                             00000006
+TX9                               00000006
+TX9D                              00000000
+TXD8                              00000000
+TXEN                              00000005
+TXIE                              00000004
+MPASM  5.35                       CLAVIER.ASM   3-26-2020  1:50:40         PAGE 11
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+UA                                00000001
+W                                 00000000
+WCOL                              00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BODEN_OFF                        00003FBF
+_BODEN_ON                         00003FFF
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003EFF
+_CP_ALL                           00001FFF
+_CP_OFF                           00003FFF
+_DEBUG_OFF                        00003FFF
+_DEBUG_ON                         000037FF
+_HS_OSC                           00003FFE
+_LP_OSC                           00003FFC
+_LVP_OFF                          00003F7F
+_LVP_ON                           00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_WRT_1FOURTH                      00003BFF
+_WRT_256                          00003DFF
+_WRT_HALF                         000039FF
+_WRT_OFF                          00003FFF
+_XT_OSC                           00003FFD
+__16F877A                         00000001
+__DEBUG                           1
+
+Errors   :     0
+Warnings :     8 reported,     0 suppressed
+Messages :     3 reported,     0 suppressed
+
+
